@@ -1,0 +1,3 @@
+## Case Técnico - Intuitive Care
+
+Em breve documentação técnica do projeto...
