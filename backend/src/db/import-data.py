@@ -32,7 +32,7 @@ def load_data():
 
     df.columns = [c.strip().upper() for c in df.columns]
     
-    logger.info("Normalizando Operadoras...")
+    logger.info("Normalizando Operadoras")
     df_ops = df[['REG_ANS']].drop_duplicates().copy()
     
     # Razão social como null apenas para teste
@@ -43,7 +43,7 @@ def load_data():
         
     df_ops.columns = ['reg_ans', 'razao_social'] if 'razao_social' in df_ops.columns else ['reg_ans', 'razao_social']
 
-    logger.info("Preparando Despesas...")
+    logger.info("Preparando Despesas")
     df_desp = df.copy()
     
     col_map = {
@@ -68,14 +68,14 @@ def load_data():
                 conn.execute(text(f.read()))
                 conn.commit()
                         
-            logger.info("Inserindo Operadoras no PostgreSQL...")
+            logger.info("Inserindo Operadoras")
 
             existing_ops = pd.read_sql("SELECT reg_ans FROM operadoras", conn)
             df_ops = df_ops[~df_ops['reg_ans'].isin(existing_ops['reg_ans'])]
             
             df_ops.to_sql('operadoras', engine, if_exists='append', index=False)
             
-            logger.info("Inserindo Despesas no PostgreSQL...")
+            logger.info("Inserindo Despesas")
 
             df_desp.to_sql('despesas', engine, if_exists='append', index=False)
             

@@ -1,0 +1,8 @@
+pandas
+requests
+openpyxl
+sqlalchemy
+psycopg2-binary
+fastapi
+uvicorn
+python-dotenv
