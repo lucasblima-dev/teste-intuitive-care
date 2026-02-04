@@ -79,6 +79,7 @@ onMounted(fetchStats);
       </AppCard>
 
       <AppCard>
+        <!-- Deixar dinâmico depois com o status real da API -->
         <h2 class="text-lg font-semibold mb-4 text-white">Status do Sistema</h2>
         <div class="space-y-4">
           <div class="flex justify-between items-center p-3 bg-slate-900/50 rounded-lg">
